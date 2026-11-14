@@ -144,7 +144,7 @@ st.markdown("""
 with st.sidebar:
     st.markdown("#### 🎛️ Admin Controls")
     st.caption("Customize AI agent & knowledge base")
-    business_name = st.text_input("Brand Name", value="Pera Fashion Store")
+    business_name = st.text_input("Brand Name", value="Bella Fashion")
     tagline = st.text_input("Subtitle", value="24/7 Smart Customer Support")
     contact_info = st.text_input("Fallback Contact", value="WhatsApp: 077-1234567")
     
