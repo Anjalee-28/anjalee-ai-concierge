@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BELLA FASHION | Modern Apparel</title>
+    <script>
+        // ඔයාගේ Streamlit Live Link එක පහළින් තියෙන තැනට දාන්න:
+        const CHATBOT_URL = "https://anjalee-ai-concierge-bfmddkupces224ajx7hr3x.streamlit.app//?embed=true";
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #fafafa;
+            color: #0f172a;
+        }
+
+        .top-bar {
+            background: #0f172a;
+            color: #e2e8f0;
+            text-align: center;
+            font-size: 12px;
+            padding: 8px;
+        }
+
+        .navbar {
+            background: #fff;
+            padding: 16px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #6366f1;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(30, 27, 75, 0.8)), url('https://unsplash.com') center/cover;
+            color: #fff;
+            padding: 80px 6%;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin: 10px 0;
+        }
+
+        .hero p {
+            color: #cbd5e1;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background: #fff;
+            color: #0f172a;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+
+        .section {
+            padding: 50px 6%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-weight: 600;
+            margin: 4px 0;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 12px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ask-btn {
+            background: #eef2ff;
+            color: #4f46e5;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .chat-bubble {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+            z-index: 1000;
+        }
+
+        .chat-popup {
+            display: none;
+            position: fixed;
+            bottom: 95px;
+            right: 25px;
+            width: 380px;
+            height: 540px;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            background: #0b0c10;
+            z-index: 1000;
+        }
+
+        .chat-popup iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">🚚 Island-wide Delivery within 2-3 Days • Free Shipping Above Rs. 6,000</div>
+    <div class="navbar">
+        <div class="logo">BELLA<span>FASHION</span></div>
+        <div>New Arrivals | Men | Women</div>
+    </div>
+    <div class="hero">
+        <h1>Elevate Your Everyday Style.</h1>
+        <p>Discover premium casual wear. Click below to ask our 24/7 AI Assistant about sizes, colors & delivery!</p>
+        <button class="btn" onclick="openChat()">💬 Chat with Bella AI</button>
+    </div>
+    <div class="section">
+        <h2>Featured Collection</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="images/image1.jpeg">
+                <div class="card-body">
+                    <div class="card-title">Casual Cotton T-Shirt</div>
+                    <div class="card-meta">S, M, L, XL • Black, White, Navy</div>
+                    <div class="card-footer"><b>Rs. 2,200</b><button class="ask-btn" onclick="openChat()">✨ Ask
+                            AI</button></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/image2.jpeg">
+                <div class="card-body">
+                    <div class="card-title">Women's Linen Kurti</div>
+                    <div class="card-meta">S, M, L • Pink, Yellow, Mint</div>
+                    <div class="card-footer"><b>Rs. 3,400</b><button class="ask-btn" onclick="openChat()">✨ Ask
+                            AI</button></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/image3.jpeg">
+                <div class="card-body">
+                    <div class="card-title">Unisex Denim Jacket</div>
+                    <div class="card-meta">M, L, XL • Blue, Black</div>
+                    <div class="card-footer"><b>Rs. 5,500</b><button class="ask-btn" onclick="openChat()">✨ Ask
+                            AI</button></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/image4.jpeg">
+                <div class="card-body">
+                    <div class="card-title">Cotton Chino Pants</div>
+                    <div class="card-meta">30 - 36 • Beige, Charcoal</div>
+                    <div class="card-footer"><b>Rs. 3,800</b><button class="ask-btn" onclick="openChat()">✨ Ask
+                            AI</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chat-bubble" onclick="toggleChat()">✨</div>
+    <div class="chat-popup" id="chatWindow"><iframe id="botFrame"></iframe></div>
+    <script>
+        document.getElementById("botFrame").src = CHATBOT_URL;
+        function toggleChat() {
+            var c = document.getElementById("chatWindow");
+            c.style.display = (c.style.display === "block") ? "none" : "block";
+        }
+        function openChat() { document.getElementById("chatWindow").style.display = "block"; }
+    </script>
+</body>
+
+</html>
